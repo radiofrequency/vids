@@ -4,16 +4,16 @@ vids
 Simple and easy video upload and streaming in node.js
 
 
-pre requisites:
+pre requisites:  
 
-node.js 0.10+
-install and run redis-server
+node.js 0.10+  
+install and run redis-server  
 
 
-git clone https://github.com/radiofrequency/vids
-npm install
+git clone https://github.com/radiofrequency/vids  
+npm install  
 
-node server
+node server  
 
-open localhost:45000
+open localhost:45000  
 
