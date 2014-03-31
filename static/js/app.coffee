@@ -21,7 +21,7 @@ $ ->
       ext = selection.files[i].name.substr(-3)
       skip = true  if ext isnt "mp4" and ext isnt "m4v" and ext isnt "fv4"
       i++
-    alert "choose a video file" if skip
+    #alert "choose a video file" if skip
     if not skip
       $("form").hide();
       $("form").submit()
