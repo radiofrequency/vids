@@ -17,10 +17,10 @@ $ ->
     selection = document.getElementById("uploadfile")
     i = 0
     skip = false
-    while i < selection.files.length
-      ext = selection.files[i].name.substr(-3)
-      skip = true  if ext isnt "mp4" and ext isnt "m4v" and ext isnt "fv4"
-      i++
+    #while i < selection.files.length
+    #  ext = selection.files[i].name.substr(-3)
+    #  skip = true  if ext isnt "mp4" and ext isnt "m4v" and ext isnt "fv4"
+    #  i++
     #alert "choose a video file" if skip
     if not skip
       $("form").hide();
