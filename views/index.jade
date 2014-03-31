@@ -1,0 +1,47 @@
+extends layout
+block append head
+
+
+block append body
+    .site-wrapper
+        .site-wrapper-inner
+            .cover-container
+                .masthead.clearfix
+                    .inner
+                        //h3.masthead-brand videos.d8.io
+
+                .inner.cover
+                    h1.cover-heading Share Videos
+                    i.fa.fa-video-camera.fa-5x
+                    p.lead
+                        | Upload any video from your pc, phone or tablet and then share it on your favorite social network!
+                    p.lead
+                        form(action="/submit", method="post", enctype="multipart/form-data")
+                           input(id="uploadfile", type="file", name="uploadfile", style="display:none").file-upload
+                           a.btn.btn-lg.btn-default.btn-upload(href='#')
+                               span
+                                 span Upload Now
+                           br
+                           span mp4,m4v,f4v Max (1GB)
+                        .loading(style="display:none")
+                            p Uploading...
+
+
+                .mastfoot
+                    .inner
+                        span
+                            a(href='https://vids.d8.io')
+                                span vids.d8.io
+                            span
+                                | &nbsp by &nbsp
+                            a(href='https://twitter.com/rfolstad') @rfolstad
+                            | &nbsp available on &nbsp
+                            a(href='https://github.com/radiofrequency/vids')
+                                span
+                                    i.fa.fa-github
+                                    span
+                                        | github
+
+
+
+

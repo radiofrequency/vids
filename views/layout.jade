@@ -1,0 +1,25 @@
+doctype html
+html(lang='en')
+head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='Share videos with your friends')
+    meta(name='author', content='@rfolstad')
+    link(rel='shortcut icon', href='/static/img/favicon.png')
+    title vids.d8.io - Share videos
+    link(href='/static/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/static/css/font-awesome.min.css', rel='stylesheet')
+    link(href='/static/css/rrssb.css', rel='stylesheet')
+    link(href='/static/css/app.css', rel='stylesheet')
+
+    block head
+    body
+      block body
+      div#fb-root
+
+
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+    script(src='/static/js/bootstrap.min.js')
+    script(src='/static/js/rrssb.min.js')
+    script(src='/static/js/app.js')
