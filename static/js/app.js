@@ -18,32 +18,15 @@
       return $('.file-upload').click();
     });
     $(".file-upload").on("change", function() {
-      var ext, i, selection, skip;
-      selection = document.getElementById("uploadfile");
-      i = 0;
-      skip = false;
-      while (i < selection.files.length) {
-        ext = selection.files[i].name.substr(-3);
-        if (ext !== "mp4" && ext !== "m4v" && ext !== "fv4") {
-          skip = true;
-        }
-        i++;
-      }
-      if (skip) {
-        alert("choose a video file");
-      }
-      if (!skip) {
-        $("form").hide();
-        $("form").submit();
-        $(".loading").show();
-      }
+      $("form").hide();
+      $("form").submit();
+      $(".loading").show();
       return true;
     });
     resize = function() {
       var videoObject;
       videoObject = $("video");
-      videoObject.width($(window).width());
-      return console.log("resize");
+      return videoObject.width($(window).width());
     };
     $("video").width($(window).width());
     return $(window).resize(resize);

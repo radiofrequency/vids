@@ -132,7 +132,7 @@
           });
         });
       });
-      app.post('/submit', function(req, res) {
+      return app.post('/submit', function(req, res) {
         var filename, local_filename, type;
         console.log(req.files.path);
         local_filename = req.files.uploadfile.path;
@@ -158,16 +158,6 @@
               return res.redirect("video/" + videoid);
             });
           });
-        });
-      });
-      return app.get('/stream/:id', function(req, res) {
-        var fileHashKey, id;
-        console.log("sream file");
-        id = req.param("id");
-        fileHashKey = "hfile:" + "video" + ":" + id;
-        rc.hmget(fileHashKey, "filename", function(err, filename) {
-          console.log(filename);
-          return streamFile2(req, res, filename.toString());
         });
       });
     });

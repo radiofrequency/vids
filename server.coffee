@@ -106,8 +106,6 @@ if cluster.isWorker
         return
       return
 
-
-
     app.post '/submit', (req,res) ->
         console.log(req.files.path)
         local_filename = req.files.uploadfile.path
@@ -126,19 +124,6 @@ if cluster.isWorker
               return
           return
         return
-
-
-    app.get '/stream/:id', (req, res) ->
-      console.log("sream file")
-      id = req.param("id")
-      fileHashKey = "hfile:" + "video" + ":" + id
-      rc.hmget fileHashKey, "filename", (err, filename) ->
-        console.log(filename)
-        streamFile2(req,res, filename.toString())
-
-      return
-
-
 
   server.listen settings.node_port + cluster.worker.id
 

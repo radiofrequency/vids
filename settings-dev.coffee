@@ -10,7 +10,7 @@
     node_host: "localhost:9229"
     node_scheme: "http://"
     num_node_process: 1
-    appname: "videoz"
+    appname: "vids"
     appheadline: "share videos from your phone"
     max_upload_mb: 1000
 
