@@ -65,12 +65,14 @@ block append body
                 video(src="/static/uploads/#{vid}", width="auto", height="auto", autoplay="yes", controls="yes")
                 p.lead
                     form(action="/submit", method="post", enctype="multipart/form-data")
-                        input(id="uploadfile", type="file", name="uploadfile", style="display:none").file-upload
+                        input(id="uploadfile", type="file", name="uploadfile", style="display:none", accept="video/*", capture).file-upload
                         a.btn.btn-lg.btn-default.btn-upload(href='#')
                             span
                                 span Upload Now
                         br
-                        span mp4,m4v,f4v Max (1GB)
+                        span Max (1GB)
+                    .loading(style="display:none")
+                        p Uploading...
 
     .fb-comments(data-href="#{share_link}", data-numposts="5",data-colorscheme="dark")
 

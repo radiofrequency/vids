@@ -17,12 +17,12 @@ block append body
                         | Upload any video from your pc, phone or tablet and then share it on your favorite social network!
                     p.lead
                         form(action="/submit", method="post", enctype="multipart/form-data")
-                           input(id="uploadfile", type="file", name="uploadfile", style="display:none", accept="video").file-upload
+                           input(id="uploadfile", type="file", name="uploadfile", style="display:none", accept="video/*", capture).file-upload
                            a.btn.btn-lg.btn-default.btn-upload(href='#')
                                span
                                  span Upload Now
                            br
-                           span mp4,m4v,f4v Max (1GB)
+                           span Max (1GB)
                         .loading(style="display:none")
                             p Uploading...
 
