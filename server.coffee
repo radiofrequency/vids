@@ -101,7 +101,7 @@ if cluster.isWorker
       id = req.param("id")
       fileHashKey = "hfile:" + "video" + ":" + id
       rc.hmget fileHashKey, "filename", (err, filename) ->
-        res.render('video', {id: req.param("id"), local_filename: "tesT", vid:filename.toString(), share_subject:"check out this video on vids.d8.io", share_link:"https://vids.d8.io/video/" + id})
+        res.render('video', {id: req.param("id"), vid:filename.toString(), share_subject:"check out this video on vids.d8.io", share_link:"https://vids.d8.io/video/" + id})
         return
       return
 
@@ -109,7 +109,7 @@ if cluster.isWorker
         console.log(req.files.path)
         local_filename = req.files.uploadfile.path
         filename = path.basename(local_filename)
-        extension = path.extname(local_filename)
+       # extension = path.extname(local_filename)
 
 
         type = "video"
@@ -119,7 +119,7 @@ if cluster.isWorker
 
           rc.zadd "zfile:" + type, Math.round((new Date()).getTime() / 1000), videoid, (err, data) ->
               fn new Error("write zfile", "uploadFile")  if err
-              rc.hmset fileHashKey, { local_filename: local_filename, filename: filename + extension, id: videoid, type: type }, (err, hmsetdata) ->
+              rc.hmset fileHashKey, { local_filename: local_filename, filename: filename, id: videoid, type: type }, (err, hmsetdata) ->
                 # return fn(new Error("write hmset", "uploadFile"))  if err
                 res.redirect("video/" +  videoid )
               return

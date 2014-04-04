@@ -125,7 +125,6 @@
         rc.hmget(fileHashKey, "filename", function(err, filename) {
           res.render('video', {
             id: req.param("id"),
-            local_filename: "tesT",
             vid: filename.toString(),
             share_subject: "check out this video on vids.d8.io",
             share_link: "https://vids.d8.io/video/" + id
@@ -133,11 +132,10 @@
         });
       });
       return app.post('/submit', function(req, res) {
-        var extension, filename, local_filename, type;
+        var filename, local_filename, type;
         console.log(req.files.path);
         local_filename = req.files.uploadfile.path;
         filename = path.basename(local_filename);
-        extension = path.extname(local_filename);
         type = "video";
         shorten("video", "placeholder", function(data) {
           var fileHashKey, videoid;
@@ -149,7 +147,7 @@
             }
             rc.hmset(fileHashKey, {
               local_filename: local_filename,
-              filename: filename + extension,
+              filename: filename,
               id: videoid,
               type: type
             }, function(err, hmsetdata) {
