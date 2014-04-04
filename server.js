@@ -133,10 +133,11 @@
         });
       });
       return app.post('/submit', function(req, res) {
-        var filename, local_filename, type;
+        var extension, filename, local_filename, type;
         console.log(req.files.path);
         local_filename = req.files.uploadfile.path;
         filename = path.basename(local_filename);
+        extension = path.extname(local_filename);
         type = "video";
         shorten("video", "placeholder", function(data) {
           var fileHashKey, videoid;
@@ -148,13 +149,10 @@
             }
             rc.hmset(fileHashKey, {
               local_filename: local_filename,
-              filename: filename,
+              filename: filename + extension,
               id: videoid,
               type: type
             }, function(err, hmsetdata) {
-              if (err) {
-                return fn(new Error("write hmset", "uploadFile"));
-              }
               return res.redirect("video/" + videoid);
             });
           });
